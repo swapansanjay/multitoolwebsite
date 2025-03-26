@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bits to Bytes Converter - Free Online Technology Converter</title>
+    <meta name="description" content="Convert bits to bytes easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="bits to bytes, technology converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bits to Bytes Converter - Free Online Technology Converter">
+    <meta property="og:description" content="Convert bits to bytes easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="bits-to-bytes">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Bits to Bytes Converter</h1>
+            <p class="text-center text-muted">Convert bits to bytes easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="bits" class="form-label">Bits</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="bits" placeholder="Enter bits" step="any">
+                            <span class="input-group-text">b</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="bytes" class="form-label">Bytes</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="bytes" placeholder="Enter bytes" step="any">
+                            <span class="input-group-text">B</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 byte = 8 bits</p>
+                    <p class="mb-0">To convert bits to bytes, divide the number of bits by 8</p>
+                    <p class="mb-0">To convert bytes to bits, multiply the number of bytes by 8</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Bytes to Kilobytes</h5>
+                            <p class="card-text">Convert digital storage units</p>
+                            <a href="bytes-to-kb.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Megabits to Megabytes</h5>
+                            <p class="card-text">Convert data transfer rates</p>
+                            <a href="mbps-to-mbps.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Technology Converter</h5>
+                            <p class="card-text">Convert between all technology units</p>
+                            <a href="technology-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const bitsInput = document.getElementById('bits');
+            const bytesInput = document.getElementById('bytes');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion functions
+            function convertBitsToBytes(bits) {
+                return bits / 8;
+            }
+
+            function convertBytesToBits(bytes) {
+                return bytes * 8;
+            }
+
+            // Event listeners
+            bitsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const bytes = convertBitsToBytes(parseFloat(this.value));
+                    bytesInput.value = bytes.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} bits = ${bytes.toFixed(4)} bytes</p>
+                    `;
+                } else {
+                    bytesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            bytesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const bits = convertBytesToBits(parseFloat(this.value));
+                    bitsInput.value = bits.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} bytes = ${bits.toFixed(4)} bits</p>
+                    `;
+                } else {
+                    bitsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                bitsInput.value = '';
+                bytesInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubic Meters to Cubic Feet Converter - Free Online Volume Converter</title>
+    <meta name="description" content="Convert cubic meters to cubic feet easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="cubic meters to cubic feet, volume converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cubic Meters to Cubic Feet Converter - Free Online Volume Converter">
+    <meta property="og:description" content="Convert cubic meters to cubic feet easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="cubic-meters-to-cubic-feet">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Cubic Meters to Cubic Feet Converter</h1>
+            <p class="text-center text-muted">Convert cubic meters to cubic feet easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="cubicMeters" class="form-label">Cubic Meters</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="cubicMeters" placeholder="Enter cubic meters" step="any">
+                            <span class="input-group-text">m³</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="cubicFeet" class="form-label">Cubic Feet</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="cubicFeet" placeholder="Enter cubic feet" step="any">
+                            <span class="input-group-text">ft³</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 cubic meter = 35.3147 cubic feet</p>
+                    <p class="mb-0">To convert cubic meters to cubic feet, multiply the volume in cubic meters by 35.3147</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Liters to Gallons</h5>
+                            <p class="card-text">Convert liters to gallons</p>
+                            <a href="liters-to-gallons.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Milliliters to Ounces</h5>
+                            <p class="card-text">Convert milliliters to ounces</p>
+                            <a href="ml-to-oz.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Volume Converter</h5>
+                            <p class="card-text">Convert between all volume units</p>
+                            <a href="volume-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const cubicMetersInput = document.getElementById('cubicMeters');
+            const cubicFeetInput = document.getElementById('cubicFeet');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertCubicMetersToCubicFeet(cubicMeters) {
+                return cubicMeters * 35.3147;
+            }
+
+            function convertCubicFeetToCubicMeters(cubicFeet) {
+                return cubicFeet / 35.3147;
+            }
+
+            // Event listeners
+            cubicMetersInput.addEventListener('input', function() {
+                if (this.value) {
+                    const cubicFeet = convertCubicMetersToCubicFeet(parseFloat(this.value));
+                    cubicFeetInput.value = cubicFeet.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} m³ = ${cubicFeet.toFixed(4)} ft³</p>
+                    `;
+                } else {
+                    cubicFeetInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            cubicFeetInput.addEventListener('input', function() {
+                if (this.value) {
+                    const cubicMeters = convertCubicFeetToCubicMeters(parseFloat(this.value));
+                    cubicMetersInput.value = cubicMeters.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} ft³ = ${cubicMeters.toFixed(4)} m³</p>
+                    `;
+                } else {
+                    cubicMetersInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                cubicMetersInput.value = '';
+                cubicFeetInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

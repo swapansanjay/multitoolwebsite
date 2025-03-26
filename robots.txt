@@ -1,0 +1,20 @@
+# robots.txt for Unit Converters
+User-agent: *
+Allow: /
+Allow: /tools/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://unitconverters.com/sitemap.xml
+
+# Disallow admin and system files
+Disallow: /admin/
+Disallow: /system/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Crawl-delay for all bots
+Crawl-delay: 10 

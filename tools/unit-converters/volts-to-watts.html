@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volts to Watts Converter - Free Online Electricity Converter</title>
+    <meta name="description" content="Convert volts to watts easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="volts to watts, electricity converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Volts to Watts Converter - Free Online Electricity Converter">
+    <meta property="og:description" content="Convert volts to watts easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="volts-to-watts">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Volts to Watts Converter</h1>
+            <p class="text-center text-muted">Convert volts to watts easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="volts" class="form-label">Volts</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="volts" placeholder="Enter volts" step="any">
+                            <span class="input-group-text">V</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="amps" class="form-label">Amperes</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="amps" placeholder="Enter amps" step="any">
+                            <span class="input-group-text">A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="watts" class="form-label">Watts</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="watts" placeholder="Enter watts" step="any">
+                            <span class="input-group-text">W</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter values to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">Power (Watts) = Voltage (Volts) × Current (Amperes)</p>
+                    <p class="mb-0">W = V × A</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Kilowatts to Horsepower</h5>
+                            <p class="card-text">Convert power units</p>
+                            <a href="kw-to-hp.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ohm's Law Calculator</h5>
+                            <p class="card-text">Calculate electrical relationships</p>
+                            <a href="ohms-law-calculator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Electricity Converter</h5>
+                            <p class="card-text">Convert between all electrical units</p>
+                            <a href="electricity-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const voltsInput = document.getElementById('volts');
+            const ampsInput = document.getElementById('amps');
+            const wattsInput = document.getElementById('watts');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion functions
+            function calculateWatts(volts, amps) {
+                return volts * amps;
+            }
+
+            function calculateAmps(watts, volts) {
+                return watts / volts;
+            }
+
+            function calculateVolts(watts, amps) {
+                return watts / amps;
+            }
+
+            // Event listeners
+            function updateResult() {
+                const volts = parseFloat(voltsInput.value);
+                const amps = parseFloat(ampsInput.value);
+                const watts = parseFloat(wattsInput.value);
+
+                if (volts && amps && !watts) {
+                    const calculatedWatts = calculateWatts(volts, amps);
+                    wattsInput.value = calculatedWatts.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${volts} V × ${amps} A = ${calculatedWatts.toFixed(4)} W</p>
+                    `;
+                } else if (volts && watts && !amps) {
+                    const calculatedAmps = calculateAmps(watts, volts);
+                    ampsInput.value = calculatedAmps.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${watts} W ÷ ${volts} V = ${calculatedAmps.toFixed(4)} A</p>
+                    `;
+                } else if (amps && watts && !volts) {
+                    const calculatedVolts = calculateVolts(watts, amps);
+                    voltsInput.value = calculatedVolts.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${watts} W ÷ ${amps} A = ${calculatedVolts.toFixed(4)} V</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<p class="mb-0">Enter any two values to calculate the third</p>';
+                }
+            }
+
+            voltsInput.addEventListener('input', updateResult);
+            ampsInput.addEventListener('input', updateResult);
+            wattsInput.addEventListener('input', updateResult);
+
+            resetBtn.addEventListener('click', function() {
+                voltsInput.value = '';
+                ampsInput.value = '';
+                wattsInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter any two values to calculate the third</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,81 @@
+/*
+Theme Name: Unit Converters Child
+Theme URI: https://unitconverters.com
+Description: Child theme for Unit Converters website
+Author: Your Name
+Author URI: https://yourwebsite.com
+Template: astra
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: unit-converters-child
+*/
+
+/* Import Astra Theme Styles */
+@import url("../astra/style.css");
+
+/* Custom Styles */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    margin: -2rem -1rem 2rem;
+}
+
+/* Search Bar */
+.search-bar-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tool Cards */
+.tool-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+}
+
+.language-selector .dropdown-menu {
+    min-width: 150px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .search-bar-container {
+        padding: 1rem;
+    }
+    
+    .tool-card {
+        margin-bottom: 1rem;
+    }
+} 

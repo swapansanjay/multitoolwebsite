@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Meters to Square Feet Converter - Free Online Area Converter</title>
+    <meta name="description" content="Convert square meters to square feet easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="square meters to square feet, area converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Square Meters to Square Feet Converter - Free Online Area Converter">
+    <meta property="og:description" content="Convert square meters to square feet easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="square-meters-to-square-feet">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Square Meters to Square Feet Converter</h1>
+            <p class="text-center text-muted">Convert square meters to square feet easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="squareMeters" class="form-label">Square Meters</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="squareMeters" placeholder="Enter square meters" step="any">
+                            <span class="input-group-text">m²</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="squareFeet" class="form-label">Square Feet</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="squareFeet" placeholder="Enter square feet" step="any">
+                            <span class="input-group-text">ft²</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 square meter = 10.7639 square feet</p>
+                    <p class="mb-0">To convert square meters to square feet, multiply the area in square meters by 10.7639</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Acres to Square Meters</h5>
+                            <p class="card-text">Convert acres to square meters</p>
+                            <a href="acres-to-square-meters.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Hectares to Acres</h5>
+                            <p class="card-text">Convert hectares to acres</p>
+                            <a href="hectares-to-acres.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Area Converter</h5>
+                            <p class="card-text">Convert between all area units</p>
+                            <a href="area-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const squareMetersInput = document.getElementById('squareMeters');
+            const squareFeetInput = document.getElementById('squareFeet');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertSquareMetersToSquareFeet(squareMeters) {
+                return squareMeters * 10.7639;
+            }
+
+            function convertSquareFeetToSquareMeters(squareFeet) {
+                return squareFeet / 10.7639;
+            }
+
+            // Event listeners
+            squareMetersInput.addEventListener('input', function() {
+                if (this.value) {
+                    const squareFeet = convertSquareMetersToSquareFeet(parseFloat(this.value));
+                    squareFeetInput.value = squareFeet.toFixed(2);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} m² = ${squareFeet.toFixed(2)} ft²</p>
+                    `;
+                } else {
+                    squareFeetInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            squareFeetInput.addEventListener('input', function() {
+                if (this.value) {
+                    const squareMeters = convertSquareFeetToSquareMeters(parseFloat(this.value));
+                    squareMetersInput.value = squareMeters.toFixed(2);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} ft² = ${squareMeters.toFixed(2)} m²</p>
+                    `;
+                } else {
+                    squareMetersInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                squareMetersInput.value = '';
+                squareFeetInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

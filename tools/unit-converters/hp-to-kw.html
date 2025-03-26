@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horsepower to Kilowatts Converter - Free Online Engineering Converter</title>
+    <meta name="description" content="Convert horsepower to kilowatts easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="horsepower to kilowatts, engineering converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Horsepower to Kilowatts Converter - Free Online Engineering Converter">
+    <meta property="og:description" content="Convert horsepower to kilowatts easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="hp-to-kw">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Horsepower to Kilowatts Converter</h1>
+            <p class="text-center text-muted">Convert horsepower to kilowatts easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="horsepower" class="form-label">Horsepower</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="horsepower" placeholder="Enter horsepower" step="any">
+                            <span class="input-group-text">hp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="kilowatts" class="form-label">Kilowatts</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="kilowatts" placeholder="Enter kilowatts" step="any">
+                            <span class="input-group-text">kW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 horsepower = 0.7457 kilowatts</p>
+                    <p class="mb-0">To convert horsepower to kilowatts, multiply the power in horsepower by 0.7457</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Newton Meters to Foot Pounds</h5>
+                            <p class="card-text">Convert torque units</p>
+                            <a href="nm-to-ftlb.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">PSI to Bar</h5>
+                            <p class="card-text">Convert pressure units</p>
+                            <a href="psi-to-bar.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Engineering Converter</h5>
+                            <p class="card-text">Convert between all engineering units</p>
+                            <a href="engineering-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const horsepowerInput = document.getElementById('horsepower');
+            const kilowattsInput = document.getElementById('kilowatts');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertHorsepowerToKilowatts(horsepower) {
+                return horsepower * 0.7457;
+            }
+
+            function convertKilowattsToHorsepower(kilowatts) {
+                return kilowatts / 0.7457;
+            }
+
+            // Event listeners
+            horsepowerInput.addEventListener('input', function() {
+                if (this.value) {
+                    const kilowatts = convertHorsepowerToKilowatts(parseFloat(this.value));
+                    kilowattsInput.value = kilowatts.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} hp = ${kilowatts.toFixed(4)} kW</p>
+                    `;
+                } else {
+                    kilowattsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            kilowattsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const horsepower = convertKilowattsToHorsepower(parseFloat(this.value));
+                    horsepowerInput.value = horsepower.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} kW = ${horsepower.toFixed(4)} hp</p>
+                    `;
+                } else {
+                    horsepowerInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                horsepowerInput.value = '';
+                kilowattsInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

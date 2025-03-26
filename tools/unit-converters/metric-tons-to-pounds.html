@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metric Tons to Pounds Converter - Free Online Unit Converter</title>
+    <meta name="description" content="Convert metric tons to pounds easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="metric tons to pounds, weight converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Metric Tons to Pounds Converter - Free Online Unit Converter">
+    <meta property="og:description" content="Convert metric tons to pounds easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="metric-tons-to-pounds">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Metric Tons to Pounds Converter</h1>
+            <p class="text-center text-muted">Convert metric tons to pounds easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="metricTons" class="form-label">Metric Tons</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="metricTons" placeholder="Enter metric tons" step="any">
+                            <span class="input-group-text">t</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="pounds" class="form-label">Pounds</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="pounds" placeholder="Enter pounds" step="any">
+                            <span class="input-group-text">lbs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 metric ton = 2204.62262 pounds</p>
+                    <p class="mb-0">To convert metric tons to pounds, multiply the weight in metric tons by 2204.62262</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Kilograms to Pounds</h5>
+                            <p class="card-text">Convert kilograms to pounds</p>
+                            <a href="kg-to-lbs.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Grams to Ounces</h5>
+                            <p class="card-text">Convert grams to ounces</p>
+                            <a href="grams-to-ounces.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Stone to Kilograms</h5>
+                            <p class="card-text">Convert stone to kilograms</p>
+                            <a href="stone-to-kg.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const metricTonsInput = document.getElementById('metricTons');
+            const poundsInput = document.getElementById('pounds');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertMetricTonsToPounds(metricTons) {
+                return metricTons * 2204.62262;
+            }
+
+            function convertPoundsToMetricTons(pounds) {
+                return pounds / 2204.62262;
+            }
+
+            // Event listeners
+            metricTonsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const pounds = convertMetricTonsToPounds(parseFloat(this.value));
+                    poundsInput.value = pounds.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} metric tons = ${pounds.toFixed(6)} pounds</p>
+                    `;
+                } else {
+                    poundsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            poundsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const metricTons = convertPoundsToMetricTons(parseFloat(this.value));
+                    metricTonsInput.value = metricTons.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} pounds = ${metricTons.toFixed(6)} metric tons</p>
+                    `;
+                } else {
+                    metricTonsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                metricTonsInput.value = '';
+                poundsInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kilograms to Pounds Converter - Free Online Unit Converter</title>
+    <meta name="description" content="Convert kilograms to pounds easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="kilograms to pounds, weight converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Kilograms to Pounds Converter - Free Online Unit Converter">
+    <meta property="og:description" content="Convert kilograms to pounds easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="kg-to-lbs">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Kilograms to Pounds Converter</h1>
+            <p class="text-center text-muted">Convert kilograms to pounds easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="kilograms" class="form-label">Kilograms</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="kilograms" placeholder="Enter kilograms" step="any">
+                            <span class="input-group-text">kg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="pounds" class="form-label">Pounds</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="pounds" placeholder="Enter pounds" step="any">
+                            <span class="input-group-text">lbs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 kilogram = 2.20462 pounds</p>
+                    <p class="mb-0">To convert kilograms to pounds, multiply the weight in kilograms by 2.20462</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Grams to Ounces</h5>
+                            <p class="card-text">Convert grams to ounces</p>
+                            <a href="grams-to-ounces.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Metric Tons to Pounds</h5>
+                            <p class="card-text">Convert metric tons to pounds</p>
+                            <a href="metric-tons-to-pounds.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Stone to Kilograms</h5>
+                            <p class="card-text">Convert stone to kilograms</p>
+                            <a href="stone-to-kg.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const kilogramsInput = document.getElementById('kilograms');
+            const poundsInput = document.getElementById('pounds');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertKilogramsToPounds(kilograms) {
+                return kilograms * 2.20462;
+            }
+
+            function convertPoundsToKilograms(pounds) {
+                return pounds / 2.20462;
+            }
+
+            // Event listeners
+            kilogramsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const pounds = convertKilogramsToPounds(parseFloat(this.value));
+                    poundsInput.value = pounds.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} kilograms = ${pounds.toFixed(6)} pounds</p>
+                    `;
+                } else {
+                    poundsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            poundsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const kilograms = convertPoundsToKilograms(parseFloat(this.value));
+                    kilogramsInput.value = kilograms.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} pounds = ${kilograms.toFixed(6)} kilograms</p>
+                    `;
+                } else {
+                    kilogramsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                kilogramsInput.value = '';
+                poundsInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

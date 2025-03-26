@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Converter - Free Online Tool</title>
+    <meta name="description" content="Convert colors between different formats with our free online tool. Transform colors between HEX, RGB, HSL, CMYK, and more.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="color converter, hex to rgb, rgb to hex, color picker, online tool">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Color Converter - Free Online Tool">
+    <meta property="og:description" content="Convert colors between different formats with our free online tool. Transform colors between HEX, RGB, HSL, CMYK, and more.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="color-converter">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Color Converter</h1>
+            <p class="text-center text-muted">Convert colors between different formats with our free online tool</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <!-- Color Input -->
+            <div class="form-group mb-3">
+                <label for="colorInput" class="form-label">Color Input</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="colorInput" placeholder="Enter color (HEX, RGB, HSL, or name)">
+                    <input type="color" class="form-control form-control-color" id="colorPicker" title="Choose color">
+                </div>
+            </div>
+
+            <!-- Color Preview -->
+            <div class="form-group mb-3">
+                <label class="form-label">Color Preview</label>
+                <div id="colorPreview" class="p-3 rounded" style="height: 100px; border: 1px solid #dee2e6;"></div>
+            </div>
+
+            <!-- Color Formats -->
+            <div class="form-group mb-3">
+                <label class="form-label">Color Formats</label>
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group">
+                            <span class="input-group-text">HEX</span>
+                            <input type="text" class="form-control" id="hexInput" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group">
+                            <span class="input-group-text">RGB</span>
+                            <input type="text" class="form-control" id="rgbInput" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group">
+                            <span class="input-group-text">HSL</span>
+                            <input type="text" class="form-control" id="hslInput" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group">
+                            <span class="input-group-text">CMYK</span>
+                            <input type="text" class="form-control" id="cmykInput" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group">
+                            <span class="input-group-text">Name</span>
+                            <input type="text" class="form-control" id="nameInput" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="input-group">
+                            <span class="input-group-text">RGBA</span>
+                            <input type="text" class="form-control" id="rgbaInput" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="copyBtn">Copy All</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Color Information Section -->
+        <div class="info-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Color Information</h5>
+                    <div id="colorInfo" class="text-center">
+                        <p class="mb-0">Enter a color to see its information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Format Examples -->
+        <div class="examples-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Color Format Examples</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>HEX: #FF0000</li>
+                        <li>RGB: rgb(255, 0, 0)</li>
+                        <li>HSL: hsl(0, 100%, 50%)</li>
+                        <li>CMYK: cmyk(0%, 100%, 100%, 0%)</li>
+                        <li>Name: red</li>
+                        <li>RGBA: rgba(255, 0, 0, 0.5)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Color Picker</h5>
+                            <p class="card-text">Pick colors from images</p>
+                            <a href="color-picker.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Color Palette Generator</h5>
+                            <p class="card-text">Generate color palettes</p>
+                            <a href="color-palette-generator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Color Tools</h5>
+                            <p class="card-text">Access all color tools</p>
+                            <a href="color-tools.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorInput = document.getElementById('colorInput');
+            const colorPicker = document.getElementById('colorPicker');
+            const colorPreview = document.getElementById('colorPreview');
+            const hexInput = document.getElementById('hexInput');
+            const rgbInput = document.getElementById('rgbInput');
+            const hslInput = document.getElementById('hslInput');
+            const cmykInput = document.getElementById('cmykInput');
+            const nameInput = document.getElementById('nameInput');
+            const rgbaInput = document.getElementById('rgbaInput');
+            const copyBtn = document.getElementById('copyBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const colorInfo = document.getElementById('colorInfo');
+
+            // Color conversion functions
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : null;
+            }
+
+            function rgbToHex(r, g, b) {
+                return '#' + [r, g, b].map(x => {
+                    const hex = x.toString(16);
+                    return hex.length === 1 ? '0' + hex : hex;
+                }).join('');
+            }
+
+            function rgbToHsl(r, g, b) {
+                r /= 255;
+                g /= 255;
+                b /= 255;
+                const max = Math.max(r, g, b);
+                const min = Math.min(r, g, b);
+                let h, s, l = (max + min) / 2;
+
+                if (max === min) {
+                    h = s = 0;
+                } else {
+                    const d = max - min;
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                    switch (max) {
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
+                    }
+                    h /= 6;
+                }
+
+                return {
+                    h: Math.round(h * 360),
+                    s: Math.round(s * 100),
+                    l: Math.round(l * 100)
+                };
+            }
+
+            function rgbToCmyk(r, g, b) {
+                r /= 255;
+                g /= 255;
+                b /= 255;
+                const k = 1 - Math.max(r, g, b);
+                const c = (1 - r - k) / (1 - k) || 0;
+                const m = (1 - g - k) / (1 - k) || 0;
+                const y = (1 - b - k) / (1 - k) || 0;
+                return {
+                    c: Math.round(c * 100),
+                    m: Math.round(m * 100),
+                    y: Math.round(y * 100),
+                    k: Math.round(k * 100)
+                };
+            }
+
+            function getColorName(r, g, b) {
+                // This is a simplified version. In a real application, you would use a color name database
+                const colors = {
+                    'red': [255, 0, 0],
+                    'green': [0, 255, 0],
+                    'blue': [0, 0, 255],
+                    'yellow': [255, 255, 0],
+                    'purple': [128, 0, 128],
+                    'orange': [255, 165, 0],
+                    'pink': [255, 192, 203],
+                    'brown': [165, 42, 42],
+                    'gray': [128, 128, 128],
+                    'black': [0, 0, 0],
+                    'white': [255, 255, 255]
+                };
+
+                let closestColor = '';
+                let minDistance = Infinity;
+
+                for (const [name, rgb] of Object.entries(colors)) {
+                    const distance = Math.sqrt(
+                        Math.pow(r - rgb[0], 2) +
+                        Math.pow(g - rgb[1], 2) +
+                        Math.pow(b - rgb[2], 2)
+                    );
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestColor = name;
+                    }
+                }
+
+                return closestColor;
+            }
+
+            // Update color information
+            function updateColorInfo(color) {
+                let rgb;
+                if (color.startsWith('#')) {
+                    rgb = hexToRgb(color);
+                } else if (color.startsWith('rgb')) {
+                    const match = color.match(/\d+/g);
+                    rgb = { r: parseInt(match[0]), g: parseInt(match[1]), b: parseInt(match[2]) };
+                } else if (color.startsWith('hsl')) {
+                    const match = color.match(/\d+/g);
+                    const hsl = { h: parseInt(match[0]), s: parseInt(match[1]), l: parseInt(match[2]) };
+                    // Convert HSL to RGB (simplified)
+                    const c = (1 - Math.abs(2 * hsl.l / 100 - 1)) * hsl.s / 100;
+                    const x = c * (1 - Math.abs((hsl.h / 60) % 2 - 1));
+                    const m = hsl.l / 100 - c / 2;
+                    let r, g, b;
+                    if (hsl.h < 60) { [r, g, b] = [c, x, 0]; }
+                    else if (hsl.h < 120) { [r, g, b] = [x, c, 0]; }
+                    else if (hsl.h < 180) { [r, g, b] = [0, c, x]; }
+                    else if (hsl.h < 240) { [r, g, b] = [0, x, c]; }
+                    else if (hsl.h < 300) { [r, g, b] = [x, 0, c]; }
+                    else { [r, g, b] = [c, 0, x]; }
+                    rgb = {
+                        r: Math.round((r + m) * 255),
+                        g: Math.round((g + m) * 255),
+                        b: Math.round((b + m) * 255)
+                    };
+                } else {
+                    // Try to parse as a named color
+                    const tempDiv = document.createElement('div');
+                    tempDiv.style.color = color;
+                    document.body.appendChild(tempDiv);
+                    const computedColor = window.getComputedStyle(tempDiv).color;
+                    document.body.removeChild(tempDiv);
+                    const match = computedColor.match(/\d+/g);
+                    rgb = { r: parseInt(match[0]), g: parseInt(match[1]), b: parseInt(match[2]) };
+                }
+
+                if (!rgb) return;
+
+                const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+                const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+                const name = getColorName(rgb.r, rgb.g, rgb.b);
+
+                // Update preview
+                colorPreview.style.backgroundColor = hex;
+
+                // Update inputs
+                hexInput.value = hex;
+                rgbInput.value = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+                hslInput.value = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+                cmykInput.value = `cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`;
+                nameInput.value = name;
+                rgbaInput.value = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`;
+
+                // Update color information
+                colorInfo.innerHTML = `
+                    <p class="mb-1">Red: ${rgb.r}</p>
+                    <p class="mb-1">Green: ${rgb.g}</p>
+                    <p class="mb-1">Blue: ${rgb.b}</p>
+                    <p class="mb-1">Hue: ${hsl.h}°</p>
+                    <p class="mb-1">Saturation: ${hsl.s}%</p>
+                    <p class="mb-0">Lightness: ${hsl.l}%</p>
+                `;
+            }
+
+            // Event listeners
+            colorInput.addEventListener('input', function() {
+                updateColorInfo(this.value);
+            });
+
+            colorPicker.addEventListener('input', function() {
+                colorInput.value = this.value;
+                updateColorInfo(this.value);
+            });
+
+            // Copy all color values
+            copyBtn.addEventListener('click', function() {
+                const text = [
+                    `HEX: ${hexInput.value}`,
+                    `RGB: ${rgbInput.value}`,
+                    `HSL: ${hslInput.value}`,
+                    `CMYK: ${cmykInput.value}`,
+                    `Name: ${nameInput.value}`,
+                    `RGBA: ${rgbaInput.value}`
+                ].join('\n');
+
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                    }, 2000);
+                });
+            });
+
+            // Reset form
+            resetBtn.addEventListener('click', function() {
+                colorInput.value = '';
+                colorPicker.value = '#000000';
+                colorPreview.style.backgroundColor = '#ffffff';
+                hexInput.value = '';
+                rgbInput.value = '';
+                hslInput.value = '';
+                cmykInput.value = '';
+                nameInput.value = '';
+                rgbaInput.value = '';
+                colorInfo.innerHTML = '<p class="mb-0">Enter a color to see its information</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

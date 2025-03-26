@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inches to Centimeters Converter - Free Online Unit Converter</title>
+    <meta name="description" content="Convert inches to centimeters easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="inches to centimeters, length converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Inches to Centimeters Converter - Free Online Unit Converter">
+    <meta property="og:description" content="Convert inches to centimeters easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="inches-to-cm">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Inches to Centimeters Converter</h1>
+            <p class="text-center text-muted">Convert inches to centimeters easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="inches" class="form-label">Inches</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="inches" placeholder="Enter inches" step="any">
+                            <span class="input-group-text">in</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="centimeters" class="form-label">Centimeters</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="centimeters" placeholder="Enter centimeters" step="any">
+                            <span class="input-group-text">cm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 inch = 2.54 centimeters</p>
+                    <p class="mb-0">To convert inches to centimeters, multiply the length in inches by 2.54</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Meters to Yards</h5>
+                            <p class="card-text">Convert meters to yards</p>
+                            <a href="meters-to-yards.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Feet to Meters</h5>
+                            <p class="card-text">Convert feet to meters</p>
+                            <a href="feet-to-meters.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Millimeters to Inches</h5>
+                            <p class="card-text">Convert millimeters to inches</p>
+                            <a href="mm-to-inches.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const inchesInput = document.getElementById('inches');
+            const centimetersInput = document.getElementById('centimeters');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertInchesToCentimeters(inches) {
+                return inches * 2.54;
+            }
+
+            function convertCentimetersToInches(centimeters) {
+                return centimeters / 2.54;
+            }
+
+            // Event listeners
+            inchesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const centimeters = convertInchesToCentimeters(parseFloat(this.value));
+                    centimetersInput.value = centimeters.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} inches = ${centimeters.toFixed(6)} centimeters</p>
+                    `;
+                } else {
+                    centimetersInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            centimetersInput.addEventListener('input', function() {
+                if (this.value) {
+                    const inches = convertCentimetersToInches(parseFloat(this.value));
+                    inchesInput.value = inches.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} centimeters = ${inches.toFixed(6)} inches</p>
+                    `;
+                } else {
+                    inchesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                inchesInput.value = '';
+                centimetersInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

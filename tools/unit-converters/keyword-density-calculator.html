@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Density Calculator - Free Online SEO Tool</title>
+    <meta name="description" content="Calculate keyword density and related SEO metrics easily with our free online tool. Get instant results and learn about keyword optimization.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="keyword density calculator, seo tool, keyword analysis, online calculator, free tool">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Keyword Density Calculator - Free Online SEO Tool">
+    <meta property="og:description" content="Calculate keyword density and related SEO metrics easily with our free online tool. Get instant results and learn about keyword optimization.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="keyword-density-calculator">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Keyword Density Calculator</h1>
+            <p class="text-center text-muted">Calculate keyword density and related SEO metrics easily with our free online tool</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="form-group mb-3">
+                <label for="text" class="form-label">Text Content</label>
+                <textarea class="form-control" id="text" rows="6" placeholder="Enter your text content here..."></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="keyword" class="form-label">Keyword</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="keyword" placeholder="Enter your keyword">
+                    <button class="btn btn-outline-secondary" type="button" id="addKeywordBtn">Add Keyword</button>
+                </div>
+                <div id="keywordList" class="mt-2"></div>
+            </div>
+
+            <!-- Options -->
+            <div class="form-group mb-3">
+                <label class="form-label">Options</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="caseSensitive" checked>
+                    <label class="form-check-label" for="caseSensitive">Case sensitive</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="exactMatch" checked>
+                    <label class="form-check-label" for="exactMatch">Exact match only</label>
+                </div>
+            </div>
+
+            <!-- Calculate Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="calculateBtn">Calculate</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Results</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter text and keyword to calculate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Calculation Formula</h5>
+                    <p class="mb-0">Keyword Density = (Number of times keyword appears / Total number of words) × 100</p>
+                    <p class="mb-0">Word Count = Total number of words in the text</p>
+                    <p class="mb-0">Keyword Frequency = Number of times the keyword appears</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Readability Calculator</h5>
+                            <p class="card-text">Calculate text readability scores</p>
+                            <a href="readability-calculator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Meta Tag Generator</h5>
+                            <p class="card-text">Generate SEO meta tags</p>
+                            <a href="meta-tag-generator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">SEO Tools</h5>
+                            <p class="card-text">Access all SEO tools</p>
+                            <a href="seo-tools.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('text');
+            const keywordInput = document.getElementById('keyword');
+            const addKeywordBtn = document.getElementById('addKeywordBtn');
+            const keywordList = document.getElementById('keywordList');
+            const caseSensitiveCheckbox = document.getElementById('caseSensitive');
+            const exactMatchCheckbox = document.getElementById('exactMatch');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            let keywords = [];
+
+            // Add keyword to list
+            addKeywordBtn.addEventListener('click', function() {
+                const keyword = keywordInput.value.trim();
+                if (keyword && !keywords.includes(keyword)) {
+                    keywords.push(keyword);
+                    updateKeywordList();
+                    keywordInput.value = '';
+                }
+            });
+
+            // Update keyword list display
+            function updateKeywordList() {
+                keywordList.innerHTML = keywords.map((keyword, index) => `
+                    <span class="badge bg-primary me-2 mb-2">
+                        ${keyword}
+                        <button class="btn-close btn-close-white ms-1" onclick="removeKeyword(${index})"></button>
+                    </span>
+                `).join('');
+            }
+
+            // Remove keyword from list
+            window.removeKeyword = function(index) {
+                keywords.splice(index, 1);
+                updateKeywordList();
+            };
+
+            // Calculate keyword density
+            function calculateKeywordDensity(text, keyword) {
+                const words = text.split(/\s+/).filter(word => word.length > 0);
+                const totalWords = words.length;
+                
+                let keywordCount = 0;
+                const searchText = caseSensitiveCheckbox.checked ? text : text.toLowerCase();
+                const searchKeyword = caseSensitiveCheckbox.checked ? keyword : keyword.toLowerCase();
+
+                if (exactMatchCheckbox.checked) {
+                    const regex = new RegExp(`\\b${searchKeyword}\\b`, caseSensitiveCheckbox.checked ? 'g' : 'gi');
+                    keywordCount = (searchText.match(regex) || []).length;
+                } else {
+                    const regex = new RegExp(searchKeyword, caseSensitiveCheckbox.checked ? 'g' : 'gi');
+                    keywordCount = (searchText.match(regex) || []).length;
+                }
+
+                const density = (keywordCount / totalWords) * 100;
+                return {
+                    keyword,
+                    count: keywordCount,
+                    density: density.toFixed(2),
+                    totalWords
+                };
+            }
+
+            // Calculate results
+            calculateBtn.addEventListener('click', function() {
+                const text = textInput.value.trim();
+                if (!text || keywords.length === 0) {
+                    resultDiv.innerHTML = '<p class="mb-0">Please enter text and at least one keyword</p>';
+                    return;
+                }
+
+                const results = keywords.map(keyword => calculateKeywordDensity(text, keyword));
+                const resultHTML = results.map(result => `
+                    <div class="mb-3">
+                        <h6>Keyword: "${result.keyword}"</h6>
+                        <p class="mb-1">Count: ${result.count}</p>
+                        <p class="mb-1">Density: ${result.density}%</p>
+                        <p class="mb-0">Total Words: ${result.totalWords}</p>
+                    </div>
+                `).join('');
+
+                resultDiv.innerHTML = resultHTML;
+            });
+
+            // Reset form
+            resetBtn.addEventListener('click', function() {
+                textInput.value = '';
+                keywordInput.value = '';
+                keywords = [];
+                updateKeywordList();
+                caseSensitiveCheckbox.checked = true;
+                exactMatchCheckbox.checked = true;
+                resultDiv.innerHTML = '<p class="mb-0">Enter text and keyword to calculate</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

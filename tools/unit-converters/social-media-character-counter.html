@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Character Counter - Free Online Tool</title>
+    <meta name="description" content="Count characters for different social media platforms with our free online tool. Get instant feedback on character limits for Twitter, Facebook, Instagram, and more.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="social media character counter, twitter character counter, facebook post length, instagram caption length, online tool">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Social Media Character Counter - Free Online Tool">
+    <meta property="og:description" content="Count characters for different social media platforms with our free online tool. Get instant feedback on character limits for Twitter, Facebook, Instagram, and more.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="social-media-character-counter">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Social Media Character Counter</h1>
+            <p class="text-center text-muted">Count characters for different social media platforms with our free online tool</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="form-group mb-3">
+                <label for="platform" class="form-label">Platform</label>
+                <select class="form-select" id="platform">
+                    <option value="twitter">Twitter (280 characters)</option>
+                    <option value="facebook">Facebook Post (63,206 characters)</option>
+                    <option value="instagram">Instagram Caption (2,200 characters)</option>
+                    <option value="linkedin">LinkedIn Post (3,000 characters)</option>
+                    <option value="tiktok">TikTok Caption (150 characters)</option>
+                    <option value="pinterest">Pinterest Description (500 characters)</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="text" class="form-label">Text Content</label>
+                <textarea class="form-control" id="text" rows="6" placeholder="Enter your text content here..."></textarea>
+            </div>
+
+            <!-- Options -->
+            <div class="form-group mb-3">
+                <label class="form-label">Options</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="countSpaces" checked>
+                    <label class="form-check-label" for="countSpaces">Count spaces</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="countPunctuation" checked>
+                    <label class="form-check-label" for="countPunctuation">Count punctuation</label>
+                </div>
+            </div>
+
+            <!-- Calculate Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="calculateBtn">Calculate</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Results</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter text to calculate character count</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character Limits Section -->
+        <div class="limits-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Platform Character Limits</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>Twitter: 280 characters</li>
+                        <li>Facebook Post: 63,206 characters</li>
+                        <li>Instagram Caption: 2,200 characters</li>
+                        <li>LinkedIn Post: 3,000 characters</li>
+                        <li>TikTok Caption: 150 characters</li>
+                        <li>Pinterest Description: 500 characters</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Word Counter</h5>
+                            <p class="card-text">Count words and characters in text</p>
+                            <a href="word-counter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Hashtag Generator</h5>
+                            <p class="card-text">Generate hashtags for social media</p>
+                            <a href="hashtag-generator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Social Media Tools</h5>
+                            <p class="card-text">Access all social media tools</p>
+                            <a href="social-media-tools.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const platformSelect = document.getElementById('platform');
+            const textInput = document.getElementById('text');
+            const countSpacesCheckbox = document.getElementById('countSpaces');
+            const countPunctuationCheckbox = document.getElementById('countPunctuation');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Platform character limits
+            const platformLimits = {
+                twitter: 280,
+                facebook: 63206,
+                instagram: 2200,
+                linkedin: 3000,
+                tiktok: 150,
+                pinterest: 500
+            };
+
+            // Calculate character count
+            function calculateCharacterCount(text) {
+                let count = 0;
+                for (let char of text) {
+                    if (char === ' ' && !countSpacesCheckbox.checked) continue;
+                    if (/[.,!?;:'"()\[\]{}]/.test(char) && !countPunctuationCheckbox.checked) continue;
+                    count++;
+                }
+                return count;
+            }
+
+            // Calculate results
+            calculateBtn.addEventListener('click', function() {
+                const text = textInput.value;
+                const platform = platformSelect.value;
+                const limit = platformLimits[platform];
+                const count = calculateCharacterCount(text);
+                const remaining = limit - count;
+
+                const resultHTML = `
+                    <div class="mb-3">
+                        <h6>Platform: ${platformSelect.options[platformSelect.selectedIndex].text}</h6>
+                        <p class="mb-1">Character Count: ${count}</p>
+                        <p class="mb-1">Characters Remaining: ${remaining}</p>
+                        <p class="mb-0 ${remaining < 0 ? 'text-danger' : ''}">
+                            ${remaining < 0 ? 'Text exceeds character limit!' : 'Text within character limit.'}
+                        </p>
+                    </div>
+                `;
+
+                resultDiv.innerHTML = resultHTML;
+            });
+
+            // Reset form
+            resetBtn.addEventListener('click', function() {
+                textInput.value = '';
+                platformSelect.selectedIndex = 0;
+                countSpacesCheckbox.checked = true;
+                countPunctuationCheckbox.checked = true;
+                resultDiv.innerHTML = '<p class="mb-0">Enter text to calculate character count</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

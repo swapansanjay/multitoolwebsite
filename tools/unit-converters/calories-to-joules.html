@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calories to Joules Converter - Free Online Health and Fitness Converter</title>
+    <meta name="description" content="Convert calories to joules easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="calories to joules, health and fitness converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Calories to Joules Converter - Free Online Health and Fitness Converter">
+    <meta property="og:description" content="Convert calories to joules easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="calories-to-joules">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Calories to Joules Converter</h1>
+            <p class="text-center text-muted">Convert calories to joules easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="calories" class="form-label">Calories</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="calories" placeholder="Enter calories" step="any">
+                            <span class="input-group-text">cal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="joules" class="form-label">Joules</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="joules" placeholder="Enter joules" step="any">
+                            <span class="input-group-text">J</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 calorie = 4.184 joules</p>
+                    <p class="mb-0">To convert calories to joules, multiply by 4.184</p>
+                    <p class="mb-0">To convert joules to calories, divide by 4.184</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">BMI Calculator</h5>
+                            <p class="card-text">Calculate body mass index</p>
+                            <a href="bmi-calculator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">TDEE Calculator</h5>
+                            <p class="card-text">Calculate total daily energy expenditure</p>
+                            <a href="tdee-calculator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Health and Fitness Converter</h5>
+                            <p class="card-text">Convert between all health and fitness units</p>
+                            <a href="health-fitness-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const caloriesInput = document.getElementById('calories');
+            const joulesInput = document.getElementById('joules');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion functions
+            function convertCaloriesToJoules(calories) {
+                return calories * 4.184;
+            }
+
+            function convertJoulesToCalories(joules) {
+                return joules / 4.184;
+            }
+
+            // Event listeners
+            caloriesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const joules = convertCaloriesToJoules(parseFloat(this.value));
+                    joulesInput.value = joules.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} cal = ${joules.toFixed(4)} J</p>
+                    `;
+                } else {
+                    joulesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            joulesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const calories = convertJoulesToCalories(parseFloat(this.value));
+                    caloriesInput.value = calories.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} J = ${calories.toFixed(4)} cal</p>
+                    `;
+                } else {
+                    caloriesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                caloriesInput.value = '';
+                joulesInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

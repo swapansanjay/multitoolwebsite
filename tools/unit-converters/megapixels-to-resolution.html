@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megapixels to Resolution Converter - Free Online Image Converter</title>
+    <meta name="description" content="Convert megapixels to resolution easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="megapixels to resolution, image converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Megapixels to Resolution Converter - Free Online Image Converter">
+    <meta property="og:description" content="Convert megapixels to resolution easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="megapixels-to-resolution">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Megapixels to Resolution Converter</h1>
+            <p class="text-center text-muted">Convert megapixels to resolution easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="megapixels" class="form-label">Megapixels</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="megapixels" placeholder="Enter megapixels" step="any">
+                            <span class="input-group-text">MP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="width" class="form-label">Width (pixels)</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="width" placeholder="Enter width" step="any">
+                            <span class="input-group-text">px</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="height" class="form-label">Height (pixels)</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="height" placeholder="Enter height" step="any">
+                            <span class="input-group-text">px</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aspect Ratio Selection -->
+            <div class="form-group mb-3">
+                <label for="aspectRatio" class="form-label">Aspect Ratio</label>
+                <select class="form-select" id="aspectRatio">
+                    <option value="4:3">4:3 (Standard)</option>
+                    <option value="16:9">16:9 (Widescreen)</option>
+                    <option value="1:1">1:1 (Square)</option>
+                    <option value="3:4">3:4 (Portrait)</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter values to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 Megapixel = 1,000,000 pixels</p>
+                    <p class="mb-0">Total Pixels = Width × Height</p>
+                    <p class="mb-0">Megapixels = Total Pixels ÷ 1,000,000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Image Size Calculator</h5>
+                            <p class="card-text">Calculate image dimensions</p>
+                            <a href="image-size-calculator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">DPI Calculator</h5>
+                            <p class="card-text">Calculate print resolution</p>
+                            <a href="dpi-calculator.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Image Converter</h5>
+                            <p class="card-text">Convert between image formats</p>
+                            <a href="image-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const megapixelsInput = document.getElementById('megapixels');
+            const widthInput = document.getElementById('width');
+            const heightInput = document.getElementById('height');
+            const aspectRatioSelect = document.getElementById('aspectRatio');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion functions
+            function calculateResolution(megapixels, aspectRatio) {
+                const totalPixels = megapixels * 1000000;
+                const [widthRatio, heightRatio] = aspectRatio.split(':').map(Number);
+                const height = Math.sqrt(totalPixels / (widthRatio * heightRatio));
+                const width = height * (widthRatio / heightRatio);
+                return {
+                    width: Math.round(width),
+                    height: Math.round(height)
+                };
+            }
+
+            function calculateMegapixels(width, height) {
+                return (width * height) / 1000000;
+            }
+
+            // Event listeners
+            function updateResult() {
+                const megapixels = parseFloat(megapixelsInput.value);
+                const width = parseFloat(widthInput.value);
+                const height = parseFloat(heightInput.value);
+                const aspectRatio = aspectRatioSelect.value;
+
+                if (megapixels && !width && !height) {
+                    const resolution = calculateResolution(megapixels, aspectRatio);
+                    widthInput.value = resolution.width;
+                    heightInput.value = resolution.height;
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${megapixels} MP = ${resolution.width} × ${resolution.height} pixels</p>
+                    `;
+                } else if (width && height && !megapixels) {
+                    const calculatedMegapixels = calculateMegapixels(width, height);
+                    megapixelsInput.value = calculatedMegapixels.toFixed(2);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${width} × ${height} pixels = ${calculatedMegapixels.toFixed(2)} MP</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<p class="mb-0">Enter megapixels or width and height to calculate</p>';
+                }
+            }
+
+            megapixelsInput.addEventListener('input', updateResult);
+            widthInput.addEventListener('input', updateResult);
+            heightInput.addEventListener('input', updateResult);
+            aspectRatioSelect.addEventListener('change', updateResult);
+
+            resetBtn.addEventListener('click', function() {
+                megapixelsInput.value = '';
+                widthInput.value = '';
+                heightInput.value = '';
+                aspectRatioSelect.value = '4:3';
+                resultDiv.innerHTML = '<p class="mb-0">Enter megapixels or width and height to calculate</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

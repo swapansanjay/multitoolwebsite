@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meters to Yards Converter - Free Online Unit Converter</title>
+    <meta name="description" content="Convert meters to yards easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="meters to yards, length converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Meters to Yards Converter - Free Online Unit Converter">
+    <meta property="og:description" content="Convert meters to yards easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="meters-to-yards">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Meters to Yards Converter</h1>
+            <p class="text-center text-muted">Convert meters to yards easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="meters" class="form-label">Meters</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="meters" placeholder="Enter meters" step="any">
+                            <span class="input-group-text">m</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="yards" class="form-label">Yards</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="yards" placeholder="Enter yards" step="any">
+                            <span class="input-group-text">yd</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 meter = 1.09361 yards</p>
+                    <p class="mb-0">To convert meters to yards, multiply the length in meters by 1.09361</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Inches to Centimeters</h5>
+                            <p class="card-text">Convert inches to centimeters</p>
+                            <a href="../unit-converters/inches-to-cm.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Kilometers to Miles</h5>
+                            <p class="card-text">Convert kilometers to miles</p>
+                            <a href="../unit-converters/km-to-miles.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Feet to Meters</h5>
+                            <p class="card-text">Convert feet to meters</p>
+                            <a href="../unit-converters/feet-to-meters.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const metersInput = document.getElementById('meters');
+            const yardsInput = document.getElementById('yards');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertMetersToYards(meters) {
+                return meters * 1.09361;
+            }
+
+            function convertYardsToMeters(yards) {
+                return yards / 1.09361;
+            }
+
+            // Event listeners
+            metersInput.addEventListener('input', function() {
+                if (this.value) {
+                    const yards = convertMetersToYards(parseFloat(this.value));
+                    yardsInput.value = yards.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} meters = ${yards.toFixed(6)} yards</p>
+                    `;
+                } else {
+                    yardsInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            yardsInput.addEventListener('input', function() {
+                if (this.value) {
+                    const meters = convertYardsToMeters(parseFloat(this.value));
+                    metersInput.value = meters.toFixed(6);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} yards = ${meters.toFixed(6)} meters</p>
+                    `;
+                } else {
+                    metersInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                metersInput.value = '';
+                yardsInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

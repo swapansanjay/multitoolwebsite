@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytes to Kilobytes Converter - Free Online Digital Storage Converter</title>
+    <meta name="description" content="Convert bytes to kilobytes easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="bytes to kilobytes, digital storage converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Bytes to Kilobytes Converter - Free Online Digital Storage Converter">
+    <meta property="og:description" content="Convert bytes to kilobytes easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="bytes-to-kb">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Bytes to Kilobytes Converter</h1>
+            <p class="text-center text-muted">Convert bytes to kilobytes easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="bytes" class="form-label">Bytes</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="bytes" placeholder="Enter bytes" step="any">
+                            <span class="input-group-text">B</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="kilobytes" class="form-label">Kilobytes</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="kilobytes" placeholder="Enter kilobytes" step="any">
+                            <span class="input-group-text">KB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 byte = 0.001 kilobytes</p>
+                    <p class="mb-0">To convert bytes to kilobytes, divide the storage in bytes by 1000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Megabytes to Gigabytes</h5>
+                            <p class="card-text">Convert megabytes to gigabytes</p>
+                            <a href="mb-to-gb.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Terabytes to Petabytes</h5>
+                            <p class="card-text">Convert terabytes to petabytes</p>
+                            <a href="tb-to-pb.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Digital Storage Converter</h5>
+                            <p class="card-text">Convert between all digital storage units</p>
+                            <a href="storage-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const bytesInput = document.getElementById('bytes');
+            const kilobytesInput = document.getElementById('kilobytes');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertBytesToKilobytes(bytes) {
+                return bytes / 1000;
+            }
+
+            function convertKilobytesToBytes(kilobytes) {
+                return kilobytes * 1000;
+            }
+
+            // Event listeners
+            bytesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const kilobytes = convertBytesToKilobytes(parseFloat(this.value));
+                    kilobytesInput.value = kilobytes.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} B = ${kilobytes.toFixed(4)} KB</p>
+                    `;
+                } else {
+                    kilobytesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            kilobytesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const bytes = convertKilobytesToBytes(parseFloat(this.value));
+                    bytesInput.value = bytes.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} KB = ${bytes.toFixed(4)} B</p>
+                    `;
+                } else {
+                    bytesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                bytesInput.value = '';
+                kilobytesInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megabytes to Gigabytes Converter - Free Online Digital Storage Converter</title>
+    <meta name="description" content="Convert megabytes to gigabytes easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="megabytes to gigabytes, digital storage converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Megabytes to Gigabytes Converter - Free Online Digital Storage Converter">
+    <meta property="og:description" content="Convert megabytes to gigabytes easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="mb-to-gb">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Megabytes to Gigabytes Converter</h1>
+            <p class="text-center text-muted">Convert megabytes to gigabytes easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="megabytes" class="form-label">Megabytes</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="megabytes" placeholder="Enter megabytes" step="any">
+                            <span class="input-group-text">MB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="gigabytes" class="form-label">Gigabytes</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="gigabytes" placeholder="Enter gigabytes" step="any">
+                            <span class="input-group-text">GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 megabyte = 0.001 gigabytes</p>
+                    <p class="mb-0">To convert megabytes to gigabytes, divide the storage in megabytes by 1000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Bytes to Kilobytes</h5>
+                            <p class="card-text">Convert bytes to kilobytes</p>
+                            <a href="bytes-to-kb.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Terabytes to Petabytes</h5>
+                            <p class="card-text">Convert terabytes to petabytes</p>
+                            <a href="tb-to-pb.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Digital Storage Converter</h5>
+                            <p class="card-text">Convert between all digital storage units</p>
+                            <a href="storage-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const megabytesInput = document.getElementById('megabytes');
+            const gigabytesInput = document.getElementById('gigabytes');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertMegabytesToGigabytes(megabytes) {
+                return megabytes / 1000;
+            }
+
+            function convertGigabytesToMegabytes(gigabytes) {
+                return gigabytes * 1000;
+            }
+
+            // Event listeners
+            megabytesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const gigabytes = convertMegabytesToGigabytes(parseFloat(this.value));
+                    gigabytesInput.value = gigabytes.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} MB = ${gigabytes.toFixed(4)} GB</p>
+                    `;
+                } else {
+                    gigabytesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            gigabytesInput.addEventListener('input', function() {
+                if (this.value) {
+                    const megabytes = convertGigabytesToMegabytes(parseFloat(this.value));
+                    megabytesInput.value = megabytes.toFixed(4);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} GB = ${megabytes.toFixed(4)} MB</p>
+                    `;
+                } else {
+                    megabytesInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                megabytesInput.value = '';
+                gigabytesInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 

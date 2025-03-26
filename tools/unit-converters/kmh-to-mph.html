@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kilometers per Hour to Miles per Hour Converter - Free Online Speed Converter</title>
+    <meta name="description" content="Convert kilometers per hour to miles per hour easily with our free online converter. Get instant results and learn about the conversion formula.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="kilometers per hour to miles per hour, speed converter, unit conversion, online converter, free converter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Kilometers per Hour to Miles per Hour Converter - Free Online Speed Converter">
+    <meta property="og:description" content="Convert kilometers per hour to miles per hour easily with our free online converter. Get instant results and learn about the conversion formula.">
+    <meta property="og:type" content="website">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-tool-id="kmh-to-mph">
+    <!-- Header -->
+    <?php include '../../header.html'; ?>
+
+    <!-- Tool Container -->
+    <div class="tool-container">
+        <div class="tool-header">
+            <h1 class="text-center mb-4">Kilometers per Hour to Miles per Hour Converter</h1>
+            <p class="text-center text-muted">Convert kilometers per hour to miles per hour easily with our free online converter</p>
+        </div>
+
+        <!-- Tool Form -->
+        <div class="tool-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="kmh" class="form-label">Kilometers per Hour</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="kmh" placeholder="Enter km/h" step="any">
+                            <span class="input-group-text">km/h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="mph" class="form-label">Miles per Hour</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="mph" placeholder="Enter mph" step="any">
+                            <span class="input-group-text">mph</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <div class="text-center">
+                <button class="btn btn-primary" id="convertBtn">Convert</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Result</h5>
+                    <div id="result" class="text-center">
+                        <p class="mb-0">Enter a value to convert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formula Section -->
+        <div class="formula-section mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Conversion Formula</h5>
+                    <p class="mb-0">1 km/h = 0.621371 mph</p>
+                    <p class="mb-0">To convert kilometers per hour to miles per hour, multiply the speed in km/h by 0.621371</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Section -->
+        <div class="ad-section mt-4">
+            <!-- AdSense or other ad code will be placed here -->
+            <div id="tool-ad"></div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools mt-4">
+            <h3 class="h4 mb-3">Related Tools</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Meters per Second to Kilometers per Hour</h5>
+                            <p class="card-text">Convert meters per second to kilometers per hour</p>
+                            <a href="mps-to-kmh.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Knots to Kilometers per Hour</h5>
+                            <p class="card-text">Convert knots to kilometers per hour</p>
+                            <a href="knots-to-kmh.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Speed Converter</h5>
+                            <p class="card-text">Convert between all speed units</p>
+                            <a href="speed-converter.html" class="btn btn-outline-primary btn-sm">Use Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <?php include '../../footer.html'; ?>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script>
+        // Tool-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const kmhInput = document.getElementById('kmh');
+            const mphInput = document.getElementById('mph');
+            const convertBtn = document.getElementById('convertBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultDiv = document.getElementById('result');
+
+            // Conversion function
+            function convertKmhToMph(kmh) {
+                return kmh * 0.621371;
+            }
+
+            function convertMphToKmh(mph) {
+                return mph / 0.621371;
+            }
+
+            // Event listeners
+            kmhInput.addEventListener('input', function() {
+                if (this.value) {
+                    const mph = convertKmhToMph(parseFloat(this.value));
+                    mphInput.value = mph.toFixed(2);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} km/h = ${mph.toFixed(2)} mph</p>
+                    `;
+                } else {
+                    mphInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            mphInput.addEventListener('input', function() {
+                if (this.value) {
+                    const kmh = convertMphToKmh(parseFloat(this.value));
+                    kmhInput.value = kmh.toFixed(2);
+                    resultDiv.innerHTML = `
+                        <p class="mb-0">${this.value} mph = ${kmh.toFixed(2)} km/h</p>
+                    `;
+                } else {
+                    kmhInput.value = '';
+                    resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+                }
+            });
+
+            resetBtn.addEventListener('click', function() {
+                kmhInput.value = '';
+                mphInput.value = '';
+                resultDiv.innerHTML = '<p class="mb-0">Enter a value to convert</p>';
+            });
+        });
+    </script>
+</body>
+</html> 
